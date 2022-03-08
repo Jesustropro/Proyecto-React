@@ -1,3 +1,12 @@
+body::-webkit-scrollbar {
+  width: 8px;
+  background-color: currentColor;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #61dafb;
+  border-radius: 8px;
+}
+
 .App {
   text-align: center;
 }
