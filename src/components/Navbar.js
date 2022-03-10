@@ -1,15 +1,17 @@
 import React from "react";
+import logo from "../images/imgNav.png";
+import Cart from "./CartWidget";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
 
 const Navegation = () => {
   return (
-    <Navbar bg="dark" variant="dark">
+    <Navbar bg="dark" variant="dark" expand="sm">
       <Container>
         <Navbar.Brand href="#home">
           <img
             alt=""
-            src="../logo1.png"
+            src={logo}
             width="50"
             height="50"
             className="d-inline-block align-top"
@@ -23,6 +25,7 @@ const Navegation = () => {
             <Nav.Link href="#catalogo">Catálago</Nav.Link>
             <Nav.Link href="#contactanos">Contáctanos</Nav.Link>
           </Nav>
+          <Cart />
         </Navbar.Collapse>
       </Container>
     </Navbar>
