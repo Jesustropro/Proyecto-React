@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../images/imgNav.png";
-import Cart from "./CartWidget";
+import CartWidget from "./CartWidget";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Container, Nav } from "react-bootstrap";
 
@@ -25,7 +25,7 @@ const Navegation = () => {
             <Nav.Link href="#catalogo">Catálago</Nav.Link>
             <Nav.Link href="#contactanos">Contáctanos</Nav.Link>
           </Nav>
-          <Cart />
+          <CartWidget />
         </Navbar.Collapse>
       </Container>
     </Navbar>

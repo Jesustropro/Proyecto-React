@@ -1,10 +1,9 @@
 import React from "react";
-const style = {};
-const itemsContainer = () => {
+const itemListContainer = ({ contenido }) => {
   return (
     <div>
-      <h1>Desafio clase 3 - Jesus Mora</h1>
+      <h1>{contenido}</h1>
     </div>
   );
 };
-export default itemsContainer;
+export default itemListContainer;

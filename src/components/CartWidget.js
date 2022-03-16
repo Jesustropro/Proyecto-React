@@ -1,6 +1,6 @@
 import React from "react";
 import imgCart from "../images/imgCart.png";
-const cartImg = () => {
+const CartWidget = () => {
   return (
     <button className="btn btn-outline-info">
       <img
@@ -13,4 +13,4 @@ const cartImg = () => {
     </button>
   );
 };
-export default cartImg;
+export default CartWidget;
