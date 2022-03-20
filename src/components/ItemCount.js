@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const ItemCount = () => {
+const ItemCount = ({ stock }) => {
   const [count, setCount] = useState(1);
   const click = (operacion) => {
     if (operacion === "añadir") {
-      setCount(count + 1);
+      if (stock > count) {
+        setCount(count + 1);
+      }
     } else if (operacion === "restar") {
       if (count > 1) {
         setCount(count - 1);
       }
     }
   };
+
   return (
     <div className="d-flex justify-content-center">
       <div className="d-flex flex-column w-25">

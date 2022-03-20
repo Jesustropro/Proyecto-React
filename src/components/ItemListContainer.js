@@ -1,9 +1,12 @@
 import React from "react";
-const itemListContainer = ({ contenido }) => {
+const itemListContainer = ({ contenido, children }) => {
   return (
-    <div>
-      <h1>{contenido}</h1>
-    </div>
+    <>
+      <div>
+        <h1>{contenido}</h1>
+      </div>
+      {children}
+    </>
   );
 };
 export default itemListContainer;
