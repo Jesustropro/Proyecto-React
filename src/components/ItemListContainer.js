@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ItemList from "./ItemList";
-import Productos from "./productos/productos";
+import Productos from "../Datos/productos";
 const ItemListContainer = () => {
   function promise() {
     return new Promise(function (resolve, reject) {
