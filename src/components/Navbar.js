@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../images/imgNav.png";
 import CartWidget from "./CartWidget";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Container, Nav } from "react-bootstrap";
@@ -11,7 +10,7 @@ const Navegation = () => {
         <Navbar.Brand href="#home">
           <img
             alt=""
-            src={logo}
+            src="/images/imgNav.png"
             width="50"
             height="50"
             className="d-inline-block align-top"

@@ -7,8 +7,9 @@ function App() {
   return (
     <div className="App">
       <Navegation />
-      <ItemListContainer contenido={"Desafio clase 5 - Jesus Mora"}>
-        <ItemCount stock={6} />
+      <h1>Desafio clase 5 - Jesus Mora</h1>
+      <ItemCount stock={6} />
+      <ItemListContainer>
         <ItemList />
       </ItemListContainer>
     </div>
