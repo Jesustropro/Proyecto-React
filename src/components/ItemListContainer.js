@@ -49,7 +49,7 @@ const ItemListContainer = () => {
   ) : (
     <div>
       <h1 className=" d-flex justify-content-center p-2">
-        Primera Entrega del Proyecto Final- Jesus Mora
+        Desafio clase 8 - Jesus Mora
       </h1>
       <ItemList items={items} />;
     </div>

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 
-const ItemCount = ({ stock }) => {
-  const [count, setCount] = useState(1);
+const ItemCount = ({ stock, añadir, count, setCount }) => {
   const click = (operacion) => {
     if (operacion === "añadir") {
       if (stock > count) {
@@ -33,9 +33,12 @@ const ItemCount = ({ stock }) => {
             +
           </button>
         </div>
-        <button className="btn btn-outline-info m-1 ">
+        <button className="btn btn-outline-info m-1" onClick={añadir}>
           Agregar al carrito
         </button>
+        <Link to="/cart">
+          <button className="btn btn-outline-info m-1">Terminar compra</button>
+        </Link>
       </div>
     </div>
   );
