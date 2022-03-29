@@ -10,7 +10,7 @@ const ItemDetailCointainer = () => {
 
   function getItem() {
     return new Promise(function (resolve, reject) {
-      setTimeout(() => resolve(productos), 2000);
+      setTimeout(() => resolve(productos), 4000);
     });
   }
   useEffect(() => {
@@ -42,9 +42,7 @@ const ItemDetailCointainer = () => {
     </>
   ) : (
     <div>
-      <h1 className=" d-flex justify-content-center">
-        Detalle del Producto {itemId.itemId}
-      </h1>
+      <h1 className=" d-flex justify-content-center">{item.titulo}</h1>
       <ItemDetail {...item} />
     </div>
   );

@@ -1,23 +1,34 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ItemList from "./ItemList";
 import productos from "../datos/productos";
 const ItemListContainer = () => {
-  const [items, setItems] = useState([false]);
-  const [loading, setLoading] = useState(true);
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const { categoriaId } = useParams();
 
+  function promise() {
+    return new Promise(function (resolve, reject) {
+      setTimeout(() => resolve(productos), 2000);
+    });
+  }
   useEffect(() => {
-    function promise() {
-      return new Promise(function (resolve, reject) {
-        setTimeout(() => resolve(productos), 2000);
-      });
-    }
+    setLoading(true);
     promise()
-      .then((data) => setItems(data))
+      .then((data) => {
+        if (categoriaId) {
+          setItems(
+            data.filter((productos) => productos.categoria === categoriaId)
+          );
+        } else {
+          setItems(data);
+        }
+      })
       .then(() => {
         setLoading(false);
       });
-  });
+  }, [categoriaId]);
 
   return loading ? (
     <>
@@ -37,9 +48,9 @@ const ItemListContainer = () => {
     </>
   ) : (
     <div>
-      <h1 className=" d-flex justify-content-center">
-        Desafio clase 6 - Jesus Mora
-      </h1>{" "}
+      <h1 className=" d-flex justify-content-center p-2">
+        Primera Entrega del Proyecto Final- Jesus Mora
+      </h1>
       <ItemList items={items} />;
     </div>
   );

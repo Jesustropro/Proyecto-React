@@ -64,7 +64,9 @@ p {
 .App-link {
   color: #61dafb;
 }
-
+.itemCount {
+  width: -webkit-fill-available;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -131,7 +133,7 @@ p {
 
 .contain .card .imgBx img {
   position: absolute;
-  top: 42%;
+  top: 36%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-25deg);
   width: 270px;
@@ -176,13 +178,13 @@ p {
 .contain .card:hover .contentBx button {
   opacity: 1;
   transform: translateY(0px);
-  transition-delay: 0.75s;
+  transition-delay: 0.25s;
 }
 
 .responsive {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .custom-btn {

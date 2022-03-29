@@ -25,9 +25,18 @@ const Navegation = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/">Inicio</Nav.Link>
-            <Nav.Link href="/">Catálago</Nav.Link>
-            <Nav.Link href="/">Contáctanos</Nav.Link>
+            <Link to="/" className="nav-link">
+              Inicio
+            </Link>
+            <Link to="/categoria/Pc" className="nav-link">
+              Pc
+            </Link>
+            <Link to="/categoria/Laptop" className="nav-link">
+              Laptop
+            </Link>
+            <Link to="/categoria/Componentes" className="nav-link">
+              Componentes
+            </Link>
           </Nav>
           <CartWidget />
         </Navbar.Collapse>

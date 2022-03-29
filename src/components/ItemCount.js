@@ -16,8 +16,8 @@ const ItemCount = ({ stock }) => {
   };
 
   return (
-    <div className="d-flex justify-content-center">
-      <div className="d-flex flex-column w-25">
+    <div className="d-flex justify-content-center itemCount">
+      <div className="d-flex flex-column">
         <div className="d-flex justify-content-around border border-info p-1 m-1">
           <button
             onClick={() => click("restar")}
