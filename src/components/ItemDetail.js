@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import ItemCount from "./ItemCount";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 
-const ItemDetail = ({ img, descripcion, precio, stock, titulo }) => {
+const ItemDetail = ({ id, img, descripcion, precio, stock, titulo }) => {
+  const { addProducto, noDuplicado } = useContext(CartContext);
+
   const navigate = useNavigate();
   const handleNavigate = () => {
     navigate(-1);
@@ -17,8 +20,9 @@ const ItemDetail = ({ img, descripcion, precio, stock, titulo }) => {
       precio,
       cantidad,
       img,
+      id,
     };
-    console.table(añadirItem);
+    addProducto(añadirItem);
   };
 
   return (
@@ -28,21 +32,33 @@ const ItemDetail = ({ img, descripcion, precio, stock, titulo }) => {
         <p>{descripcion}</p>
         <h6>Precio: {precio}$</h6>
         <h6>Disponibles: {stock}</h6>
-        <ItemCount
-          stock={stock}
-          añadir={añadirAlCarrito}
-          count={cantidad}
-          setCount={setCantidad}
-        />
-
-        <button
-          className="custom-btn btn-12 m-3"
-          type="button"
-          onClick={handleNavigate}
-        >
-          <span>Atras</span>
-          <span>Volver</span>
-        </button>
+        {!noDuplicado(id) ? (
+          <>
+            <ItemCount
+              stock={stock}
+              añadir={añadirAlCarrito}
+              count={cantidad}
+              setCount={setCantidad}
+            />
+            <button
+              className="custom-btn btn-12 m-3"
+              type="button"
+              onClick={handleNavigate}
+            >
+              <span>Atras</span>
+              <span>Volver</span>
+            </button>
+          </>
+        ) : (
+          <>
+            <Link to="/cart" className="btn btn-outline-info m-1">
+              Terminar compra
+            </Link>
+            <Link to="/" className="btn btn-outline-info m-1">
+              Seguir comprando
+            </Link>
+          </>
+        )}
       </div>
     </>
   );
