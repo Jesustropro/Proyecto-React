@@ -8,9 +8,11 @@ export const CartProvider = ({ children }) => {
   const addProducto = (producto) => {
     setCart([...cart, producto]);
   };
+
   const noDuplicado = (id) => {
-    return cart.some((producto) => producto.id === id);
+    return cart.find((producto) => producto.id === id);
   };
+
   const cantidadEnCarrito = () => {
     return cart.reduce(
       (acumulador, producto) => (acumulador += producto.cantidad),

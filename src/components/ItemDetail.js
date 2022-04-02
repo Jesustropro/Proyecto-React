@@ -32,7 +32,16 @@ const ItemDetail = ({ id, img, descripcion, precio, stock, titulo }) => {
         <p>{descripcion}</p>
         <h6>Precio: {precio}$</h6>
         <h6>Disponibles: {stock}</h6>
-        {!noDuplicado(id) ? (
+        {noDuplicado(id) ? (
+          <>
+            <Link to="/cart" className="btn btn-outline-info m-1">
+              Terminar compra
+            </Link>
+            <Link to="/" className="btn btn-outline-info m-1">
+              Seguir comprando
+            </Link>
+          </>
+        ) : (
           <>
             <ItemCount
               stock={stock}
@@ -48,15 +57,6 @@ const ItemDetail = ({ id, img, descripcion, precio, stock, titulo }) => {
               <span>Atras</span>
               <span>Volver</span>
             </button>
-          </>
-        ) : (
-          <>
-            <Link to="/cart" className="btn btn-outline-info m-1">
-              Terminar compra
-            </Link>
-            <Link to="/" className="btn btn-outline-info m-1">
-              Seguir comprando
-            </Link>
           </>
         )}
       </div>

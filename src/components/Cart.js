@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 
-import { Card } from "react-bootstrap";
 const Cart = () => {
   const navigate = useNavigate();
   const handleNavigate = () => {
@@ -19,23 +18,24 @@ const Cart = () => {
         {cart.map((producto) => {
           return (
             <div
-              class="card mb-2 border-info "
+              key={producto.id}
+              className="card mb-2 border-info "
               style={{ width: "440px", backgroundColor: "transparent" }}
             >
-              <div class="row g-0">
-                <div class="col-md-6">
+              <div className="row g-0">
+                <div className="col-md-6">
                   <img
                     src={producto.img}
-                    class="img-fluid rounded-start p-3"
+                    className="img-fluid rounded-start p-3"
                     alt="..."
                   />
                 </div>
-                <div class="col-md-6">
-                  <div class="card-body">
-                    <h5 class="card-title">{producto.titulo}</h5>
-                    <p class="card-text">Precio c/u: {producto.precio}$</p>
-                    <p class="card-text">Cantidad: {producto.cantidad}</p>
-                    <p class="card-text">
+                <div className="col-md-6">
+                  <div className="card-body">
+                    <h5 className="card-title">{producto.titulo}</h5>
+                    <p className="card-text">Precio c/u: {producto.precio}$</p>
+                    <p className="card-text">Cantidad: {producto.cantidad}</p>
+                    <p className="card-text">
                       Precio: {producto.precio * producto.cantidad}$
                     </p>
                     <button
