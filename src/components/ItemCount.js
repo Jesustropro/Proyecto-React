@@ -1,5 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 
 const ItemCount = ({ stock, añadir, count, setCount }) => {
   const click = (operacion) => {
@@ -32,6 +33,7 @@ const ItemCount = ({ stock, añadir, count, setCount }) => {
             +
           </button>
         </div>
+
         <button className="btn btn-outline-info m-1" onClick={añadir}>
           Agregar al carrito
         </button>

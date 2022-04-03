@@ -22,7 +22,7 @@ const ItemDetail = ({ id, img, descripcion, precio, stock, titulo }) => {
       img,
       id,
     };
-    addProducto(añadirItem);
+    addProducto(añadirItem, cantidad);
   };
 
   return (
@@ -32,33 +32,20 @@ const ItemDetail = ({ id, img, descripcion, precio, stock, titulo }) => {
         <p>{descripcion}</p>
         <h6>Precio: {precio}$</h6>
         <h6>Disponibles: {stock}</h6>
-        {noDuplicado(id) ? (
-          <>
-            <Link to="/cart" className="btn btn-outline-info m-1">
-              Terminar compra
-            </Link>
-            <Link to="/" className="btn btn-outline-info m-1">
-              Seguir comprando
-            </Link>
-          </>
-        ) : (
-          <>
-            <ItemCount
-              stock={stock}
-              añadir={añadirAlCarrito}
-              count={cantidad}
-              setCount={setCantidad}
-            />
-            <button
-              className="custom-btn btn-12 m-3"
-              type="button"
-              onClick={handleNavigate}
-            >
-              <span>Atras</span>
-              <span>Volver</span>
-            </button>
-          </>
-        )}
+        <ItemCount
+          stock={stock}
+          añadir={añadirAlCarrito}
+          count={cantidad}
+          setCount={setCantidad}
+        />
+        <button
+          className="custom-btn btn-12 m-3"
+          type="button"
+          onClick={handleNavigate}
+        >
+          <span>Atras</span>
+          <span>Volver</span>
+        </button>
       </div>
     </>
   );
