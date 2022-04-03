@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import ItemCount from "./ItemCount";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 
 const ItemDetail = ({ id, img, descripcion, precio, stock, titulo }) => {
-  const { addProducto, noDuplicado } = useContext(CartContext);
+  const { addProducto } = useContext(CartContext);
 
   const navigate = useNavigate();
   const handleNavigate = () => {
