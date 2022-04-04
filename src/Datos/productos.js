@@ -56,9 +56,9 @@ const productos = [
   {
     id: 7,
     stock: 10,
-    categoria: "Laptop",
-    titulo: "Laptop MH-1204",
-    descripcion: "Laptop 4gb ram .......",
+    categoria: "Notebooks",
+    titulo: "Notebook MH-1204",
+    descripcion: "Notebook 4gb ram .......",
     precio: 600,
     img: "/images/laptop1.png",
   },

@@ -22,6 +22,7 @@ const ItemDetail = ({ id, img, descripcion, precio, stock, titulo }) => {
       img,
       id,
     };
+    setCantidad(1);
     addProducto(añadirItem, cantidad);
   };
 
@@ -31,24 +32,17 @@ const ItemDetail = ({ id, img, descripcion, precio, stock, titulo }) => {
         <img alt="" src={img} style={{ width: "18rem" }} />
         <p>{descripcion}</p>
         <h6>Precio: {precio}$</h6>
-        <h6>Disponibles: {stock}</h6>
+        <h6>Disponibles: {stock}</h6>{" "}
+        <ItemCount
+          stock={stock}
+          añadir={añadirAlCarrito}
+          count={cantidad}
+          setCount={setCantidad}
+        />
         {!noDuplicado(id) ? (
-          <>
-            <ItemCount
-              stock={stock}
-              añadir={añadirAlCarrito}
-              count={cantidad}
-              setCount={setCantidad}
-            />
-          </>
+          <></>
         ) : (
           <>
-            <ItemCount
-              stock={stock}
-              añadir={añadirAlCarrito}
-              count={cantidad}
-              setCount={setCantidad}
-            />
             <Link to="/cart" className="btn btn-outline-info m-1">
               Terminar compra
             </Link>

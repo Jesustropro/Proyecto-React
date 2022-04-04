@@ -31,8 +31,8 @@ const Navegation = () => {
             <Link to="/categoria/Pc" className="nav-link">
               Pc
             </Link>
-            <Link to="/categoria/Laptop" className="nav-link">
-              Laptop
+            <Link to="/categoria/Notebooks" className="nav-link">
+              Notebooks
             </Link>
             <Link to="/categoria/Componentes" className="nav-link">
               Componentes
