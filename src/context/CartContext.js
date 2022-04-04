@@ -10,17 +10,15 @@ export const CartProvider = ({ children }) => {
   };
 
   const addProducto = (producto, cantidad) => {
-    if (noDuplicado(producto.id)) {
-      let productoEnCarrito = cart.filter(
-        (produc) => producto.id === produc.id
-      );
-      productoEnCarrito[0].cantidad = productoEnCarrito[0].cantidad + cantidad;
-
-      return;
+    const productoEncontrado = noDuplicado(producto.id);
+    if (productoEncontrado) {
+      productoEncontrado.cantidad += cantidad;
+      producto.cantidad = cantidad;
+      setCart([...cart]);
+    } else {
+      producto.cantidad = cantidad;
+      setCart([...cart, producto]);
     }
-    setCart([...cart, producto]);
-
-    producto.cantidad = cantidad;
   };
 
   const cantidadEnCarrito = () => {

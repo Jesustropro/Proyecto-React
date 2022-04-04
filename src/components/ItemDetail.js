@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import ItemCount from "./ItemCount";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 
 const ItemDetail = ({ id, img, descripcion, precio, stock, titulo }) => {
-  const { addProducto } = useContext(CartContext);
+  const { addProducto, noDuplicado } = useContext(CartContext);
 
   const navigate = useNavigate();
   const handleNavigate = () => {
@@ -32,12 +32,28 @@ const ItemDetail = ({ id, img, descripcion, precio, stock, titulo }) => {
         <p>{descripcion}</p>
         <h6>Precio: {precio}$</h6>
         <h6>Disponibles: {stock}</h6>
-        <ItemCount
-          stock={stock}
-          añadir={añadirAlCarrito}
-          count={cantidad}
-          setCount={setCantidad}
-        />
+        {!noDuplicado(id) ? (
+          <>
+            <ItemCount
+              stock={stock}
+              añadir={añadirAlCarrito}
+              count={cantidad}
+              setCount={setCantidad}
+            />
+          </>
+        ) : (
+          <>
+            <ItemCount
+              stock={stock}
+              añadir={añadirAlCarrito}
+              count={cantidad}
+              setCount={setCantidad}
+            />
+            <Link to="/cart" className="btn btn-outline-info m-1">
+              Terminar compra
+            </Link>
+          </>
+        )}
         <button
           className="custom-btn btn-12 m-3"
           type="button"
