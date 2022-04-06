@@ -32,13 +32,22 @@ const ItemDetail = ({ id, img, descripcion, precio, stock, titulo }) => {
         <img alt="" src={img} style={{ width: "18rem" }} />
         <p>{descripcion}</p>
         <h6>Precio: {precio}$</h6>
-        <h6>Disponibles: {stock}</h6>{" "}
-        <ItemCount
-          stock={stock}
-          añadir={añadirAlCarrito}
-          count={cantidad}
-          setCount={setCantidad}
-        />
+        <h6>Disponibles: {stock}</h6>
+        {stock === 0 && (
+          <h6 className="aviso">{`Oh! No tenemos ningún ${titulo} Disponible :(`}</h6>
+        )}
+        {stock < 10 && stock > 0 && (
+          <h6 className="aviso">Ultimas unidades Disponibles!</h6>
+        )}
+        {stock > 0 && (
+          <ItemCount
+            stock={stock}
+            añadir={añadirAlCarrito}
+            count={cantidad}
+            setCount={setCantidad}
+          />
+        )}
+
         {!noDuplicado(id) ? (
           <></>
         ) : (

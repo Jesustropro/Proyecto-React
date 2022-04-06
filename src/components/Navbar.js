@@ -6,9 +6,9 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 
 const Navegation = () => {
   return (
-    <Navbar bg="dark" variant="dark" expand="sm">
+    <Navbar variant="dark" expand="sm">
       <Container>
-        <Link to="/">
+        <Link to="/inicio">
           <Navbar.Brand>
             <img
               alt=""
@@ -19,13 +19,13 @@ const Navegation = () => {
             />
           </Navbar.Brand>
         </Link>
-        <Link to="/">
+        <Link to="/inicio">
           <Navbar.Brand>TopPC</Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link to="/" className="nav-link">
+            <Link to="/" className="nav-link ">
               Inicio
             </Link>
             <Link to="/categoria/Pc" className="nav-link">

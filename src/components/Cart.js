@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 
 const Cart = () => {
@@ -11,7 +11,7 @@ const Cart = () => {
   const { cart, cartTotal, vaciarCarrito, vaciarProducto } =
     useContext(CartContext);
 
-  return (
+  return cart.length > 0 ? (
     <>
       <div className="d-flex justify-content-center flex-column flex-wrap align-content-center">
         <h1>Resumen de compra</h1>
@@ -64,6 +64,23 @@ const Cart = () => {
         >
           Atras
         </button>
+      </div>
+    </>
+  ) : (
+    <>
+      <h1
+        className="
+    d-flex justify-content-center m-5 "
+      >
+        No hay productos en el carrito!
+      </h1>
+      <div
+        className="
+    d-flex justify-content-center m-5 "
+      >
+        <Link to="/" className="btn btn-outline-info m-1" type="button">
+          Añadir productos
+        </Link>
       </div>
     </>
   );

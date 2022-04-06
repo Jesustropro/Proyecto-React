@@ -14,9 +14,7 @@ const CartWidget = () => {
           height="30"
           className="d-inline-block align-top"
         />
-        {cart.length > 0 ? (
-          <span className="m-1">{cantidadEnCarrito()}</span>
-        ) : null}
+        {cart.length > 0 && <span className="m-1">{cantidadEnCarrito()}</span>}
       </button>
     </Link>
   );

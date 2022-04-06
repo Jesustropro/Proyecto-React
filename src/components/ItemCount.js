@@ -21,6 +21,7 @@ const ItemCount = ({ stock, añadir, count, setCount }) => {
           <button
             onClick={() => click("restar")}
             className="btn btn-outline-info"
+            disabled={count <= 1}
           >
             -
           </button>
@@ -28,12 +29,16 @@ const ItemCount = ({ stock, añadir, count, setCount }) => {
           <button
             onClick={() => click("añadir")}
             className="btn btn-outline-info"
+            disabled={count === stock}
           >
             +
           </button>
         </div>
 
-        <button className="btn btn-outline-info m-1" onClick={añadir}>
+        <button
+          className="btn btn-outline-info m-1"
+          onClick={stock !== 0 && añadir}
+        >
           Agregar al carrito
         </button>
       </div>

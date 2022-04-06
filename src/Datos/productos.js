@@ -10,7 +10,7 @@ const productos = [
   },
   {
     id: 2,
-    stock: 20,
+    stock: 0,
     categoria: "Componentes",
     titulo: "Teclado",
     descripcion: "Teclado gamer con 8 luces led.....",
@@ -57,7 +57,7 @@ const productos = [
     id: 7,
     stock: 10,
     categoria: "Notebooks",
-    titulo: "Notebook MH-1204",
+    titulo: "Notebook MH-12",
     descripcion: "Notebook 4gb ram .......",
     precio: 600,
     img: "/images/laptop1.png",
