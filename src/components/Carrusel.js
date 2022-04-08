@@ -23,7 +23,7 @@ const Carrusel = () => {
       <div className=" d-flex justify-content-center">
         <h1 className="tituloPrincipal">TopPC... Todo lo que buscas</h1>
       </div>
-      <div className=" d-flex m-5 justify-content-center ">
+      <div className=" d-flex m-5 justify-content-center responsive">
         <Link to={`/categoria/Pc`}>
           <div className="contain  m-5">
             <div className="card">

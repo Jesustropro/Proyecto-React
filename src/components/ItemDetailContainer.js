@@ -1,28 +1,25 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useParams } from "react-router-dom";
-import productos from "../datos/productos";
-import ItemDetail from "./ItemDetail";
-const ItemDetailCointainer = () => {
-  const [item, setItem] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const itemId = useParams();
 
-  function getItem() {
-    return new Promise(function (resolve, reject) {
-      setTimeout(() => resolve(productos), 4000);
-    });
-  }
+import ItemDetail from "./ItemDetail";
+import { db } from "../firebase/config";
+import { doc, getDoc } from "firebase/firestore";
+const ItemDetailCointainer = () => {
+  const [item, setItem] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const { itemId } = useParams();
+
   useEffect(() => {
-    getItem()
-      .then((data) => {
-        setItem(
-          data.find((productos) => productos.id === Number(itemId.itemId))
-        );
+    const itemRef = doc(db, "productos", itemId);
+    console.log(itemRef);
+    getDoc(itemRef)
+      .then((doc) => {
+        const prod = { id: doc.id, ...doc.data() };
+
+        setItem(prod);
       })
-      .then(() => {
-        setLoading(false);
-      });
+      .finally(setLoading(false));
   }, [itemId]);
   return loading ? (
     <>
