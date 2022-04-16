@@ -42,6 +42,21 @@ p {
   text-align: center;
 }
 
+label {
+  color: white;
+}
+input {
+  background-color: transparent !important;
+  color: white !important;
+  border-color: #0dcaf0 !important;
+}
+input:invalid {
+  border: 3.5px solid rgb(252, 103, 103) !important;
+}
+input:valid {
+  border: 3.5px solid #0dcaf0 !important;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

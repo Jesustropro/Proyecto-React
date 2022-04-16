@@ -53,7 +53,7 @@ const ItemDetail = ({ id, img, descripcion, precio, stock, titulo }) => {
         ) : (
           <>
             <Link to="/cart" className="btn btn-outline-info m-1">
-              Terminar compra
+              Ver mi carrito
             </Link>
           </>
         )}

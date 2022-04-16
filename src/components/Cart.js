@@ -10,7 +10,7 @@ const Cart = () => {
 
   const { cart, cartTotal, vaciarCarrito, vaciarProducto } =
     useContext(CartContext);
-
+  console.log(cart.lenght);
   return cart.length > 0 ? (
     <>
       <div className="d-flex justify-content-center flex-column flex-wrap align-content-center">
@@ -51,7 +51,9 @@ const Cart = () => {
           );
         })}
         <h4>Precio Total: {cartTotal()}$</h4>
-        <button className="btn btn-outline-info m-1">Comprar</button>
+        <Link to="/checkout" className="btn btn-outline-info m-1">
+          Terminar mi compra
+        </Link>
 
         <button className="btn btn-outline-info m-1" onClick={vaciarCarrito}>
           Vaciar Carrito
