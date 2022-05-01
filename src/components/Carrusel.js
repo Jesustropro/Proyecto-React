@@ -21,10 +21,10 @@ const Carrusel = () => {
         </figure>
       </div>
       <div className=" d-flex justify-content-center mt-4 text-center">
-        <h1 className="">TopPC... Tu aliado en tegnología</h1>
+        <h1 className="">TopPC... Tu aliado en tecnología</h1>
       </div>
       <div className=" d-flex m-5 justify-content-center responsive">
-        <Link to={`/categoria/Pc`}>
+        <Link to={`/categoria/Desktop`}>
           <div className="contain  mb-3 m-2">
             <div className="card">
               <Card style={{ width: "18rem" }}>
@@ -33,7 +33,7 @@ const Carrusel = () => {
                 </div>
                 <div className="contentBx">
                   <Card.Title>
-                    <h2>Pc</h2>
+                    <h2>Desktop</h2>
                   </Card.Title>
 
                   <button className="custom-btn btn-12" type="button">

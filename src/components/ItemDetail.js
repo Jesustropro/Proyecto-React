@@ -35,10 +35,10 @@ const ItemDetail = ({ id, img, descripcion, precio, stock, titulo }) => {
         <h6>Precio: {precio}$</h6>
         <h6>Disponibles: {stock}</h6>
         {stock === 0 && (
-          <h6 className="aviso">{`Oh! no tenemos ningún ${titulo} disponible :(`}</h6>
+          <h6 className="aviso ">{`Oh! no tenemos ningún ${titulo} disponible :(`}</h6>
         )}
         {stock < 10 && stock > 0 && (
-          <h6 className="aviso">Últimas unidades disponibles!</h6>
+          <h6 className="aviso ">Últimas unidades disponibles!</h6>
         )}
         {stock > 0 && (
           <ItemCount
@@ -61,7 +61,7 @@ const ItemDetail = ({ id, img, descripcion, precio, stock, titulo }) => {
           </>
         )}
         <button
-          className="custom-btn btn-12 m-3"
+          className="custom-btn btn-12 m-3 mb-5"
           type="button"
           onClick={handleNavigate}
         >
