@@ -22,6 +22,7 @@ const firebaseConfig = {
   appId: enviroment.appId,
 };
 
+console.log(firebaseConfig);
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
