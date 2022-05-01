@@ -16,13 +16,11 @@ const CartCard = ({ producto }) => {
 
       localStorage.setItem("carrito", JSON.stringify([...cart]));
     } else if (parseInt(cantidad) > producto.stock) {
-      producto.cantidad = producto.stock;
-      setCart([...cart]);
       Swal.fire({
         position: "top-end",
         width: 400,
         icon: "error",
-        title: `Solo se pueden añadir ${producto.stock} ${producto.titulo} al carrito`,
+        title: `Solo hay ${producto.stock} ${producto.titulo} disponibles`,
         background: "#0f202798 ",
         color: "#716add",
         showConfirmButton: false,
