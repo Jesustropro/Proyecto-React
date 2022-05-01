@@ -11,16 +11,12 @@
 html,
 body {
   height: 100%;
-  padding-right: 0px !important;
 }
-body {
-  overflow: visible !important;
-}
+
 nav {
   font-weight: 600;
 }
 #root {
-  position: relative;
   padding-bottom: 15%;
   min-height: 100%;
   background-image: linear-gradient(#0f2027, #203a43, #2c5364);

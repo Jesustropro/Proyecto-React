@@ -58,7 +58,7 @@ const Footer = () => {
           </section>
         </div>
 
-        <div className="text-center p-3 m-1">© 2022 Copyright: TopPC </div>
+        <div className="text-center p-3 ">© 2022 Copyright: TopPC </div>
       </footer>
     </>
   );
