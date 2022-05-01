@@ -29,7 +29,7 @@ const Carrusel = () => {
             <div className="card">
               <Card style={{ width: "18rem" }}>
                 <div className="imgBx">
-                  <Card.Img variant="top" src="/images/Pc1.png" />
+                  <Card.Img variant="top" src="/images/pc1.png" />
                 </div>
                 <div className="contentBx">
                   <Card.Title>
