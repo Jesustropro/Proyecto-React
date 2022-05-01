@@ -7,10 +7,7 @@ const CartCard = ({ producto }) => {
   const updateCantidadProduct = (e, productoId) => {
     const cantidad = e.target.value;
 
-    const producduplicado = cart.filter((produc) => productoId === produc.id);
-
     if (parseInt(cantidad) <= producto.stock) {
-      producduplicado.cantidad = cantidad;
       producto.cantidad = parseInt(cantidad);
       setCart([...cart]);
 

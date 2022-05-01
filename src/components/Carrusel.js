@@ -25,7 +25,7 @@ const Carrusel = () => {
       </div>
       <div className=" d-flex m-5 justify-content-center responsive">
         <Link to={`/categoria/Pc`}>
-          <div className="contain  m-5">
+          <div className="contain  mb-3 m-2">
             <div className="card">
               <Card style={{ width: "18rem" }}>
                 <div className="imgBx">
@@ -46,7 +46,7 @@ const Carrusel = () => {
           </div>
         </Link>
         <Link to={`/categoria/Componentes`}>
-          <div className="contain  m-5">
+          <div className="contain  mb-3 m-2">
             <div className="card">
               <Card style={{ width: "18rem" }}>
                 <div className="imgBx">
@@ -66,7 +66,7 @@ const Carrusel = () => {
           </div>
         </Link>
         <Link to={`/categoria/Notebooks`}>
-          <div className="contain m-5">
+          <div className="contain mb-3 m-2">
             <div className="card">
               <Card style={{ width: "18rem" }}>
                 <div className="imgBx">

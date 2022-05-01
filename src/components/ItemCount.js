@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { CartContext } from "../context/CartContext";
 import Swal from "sweetalert2";
-const ItemCount = ({ id, stock, añadir, count, setCount }) => {
+const ItemCount = ({ id, stock, añadir, count, setCount, titulo }) => {
   const { cart } = useContext(CartContext);
   const productoInCart = cart.find((producto) => producto.id === id);
 
@@ -48,11 +48,11 @@ const ItemCount = ({ id, stock, añadir, count, setCount }) => {
                   position: "top-end",
                   width: 400,
                   icon: "error",
-                  title: "No se puede añadir al carrito",
+                  title: `Solo hay ${stock} ${titulo} disponibles`,
                   background: "#0f202798 ",
                   color: "#716add",
                   showConfirmButton: false,
-                  timer: 1000,
+                  timer: 2000,
                 });
               }
               if (productoInCart.cantidad + count <= stock && stock !== 0) {

@@ -11,6 +11,10 @@
 html,
 body {
   height: 100%;
+  padding-right: 0px !important;
+}
+body {
+  overflow: visible !important;
 }
 nav {
   font-weight: 600;
@@ -26,14 +30,15 @@ nav {
     padding-bottom: 28%;
   }
 }
-body::-webkit-scrollbar {
+html::-webkit-scrollbar {
   width: 8px;
   background-color: currentColor;
 }
-body::-webkit-scrollbar-thumb {
+html::-webkit-scrollbar-thumb {
   background-color: #61dafb;
   border-radius: 8px;
 }
+
 a {
   text-decoration: none !important;
 }

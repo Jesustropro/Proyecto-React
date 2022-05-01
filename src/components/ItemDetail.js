@@ -47,6 +47,7 @@ const ItemDetail = ({ id, img, descripcion, precio, stock, titulo }) => {
             añadir={añadirAlCarrito}
             count={cantidad}
             setCount={setCantidad}
+            titulo={titulo}
           />
         )}
 
