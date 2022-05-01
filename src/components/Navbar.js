@@ -38,7 +38,11 @@ const Navegation = () => {
               <Nav.Link href="#componentes">Componentes</Nav.Link>
             </Link>
           </Nav>
-          <CartWidget />
+          <Link to="/cart">
+            <Nav.Link href="#cart">
+              <CartWidget />
+            </Nav.Link>
+          </Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>
