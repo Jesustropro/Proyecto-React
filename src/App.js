@@ -17,7 +17,10 @@ function App() {
         <NavMenu />
         <Routes>
           <Route path="/inicio" element={<Carrusel />} />
-          <Route path="/catalogo" element={<ItemListContainer />}></Route>
+          <Route
+            path="/TodosLosProductos"
+            element={<ItemListContainer />}
+          ></Route>
           <Route
             path="/categoria/:categoriaId"
             element={<ItemListContainer />}

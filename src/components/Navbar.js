@@ -25,11 +25,11 @@ const Navegation = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Link to="/catalogo" className="nav-link">
-              <Nav.Link href="#catalogo">Catálogo</Nav.Link>
+            <Link to="/TodosLosProductos" className="nav-link">
+              <Nav.Link href="#TodosLosProductos">Todos los productos</Nav.Link>
             </Link>
-            <Link to="/categoria/Pc" href="#features" className="nav-link">
-              <Nav.Link href="#pc">Pc</Nav.Link>
+            <Link to="/categoria/Desktop" href="#features" className="nav-link">
+              <Nav.Link href="#Desktop">Desktop</Nav.Link>
             </Link>
             <Link to="/categoria/Notebooks" className="nav-link">
               <Nav.Link href="#notebooks">Notebooks</Nav.Link>

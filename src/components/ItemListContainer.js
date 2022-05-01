@@ -48,7 +48,7 @@ const ItemListContainer = () => {
   ) : (
     <div>
       <h1 className=" d-flex justify-content-center p-2">
-        {categoriaId ? `${categoriaId}` : "Catálogo"}
+        {categoriaId ? `${categoriaId}` : "Todos los productos"}
       </h1>
       <ItemList items={items} />;
     </div>
