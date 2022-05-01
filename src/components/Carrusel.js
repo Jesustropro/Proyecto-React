@@ -6,15 +6,15 @@ const Carrusel = () => {
   return (
     <>
       <div className="carrusel">
-        <figure class="icon-cards mt-3">
-          <div class="icon-cards__content">
-            <div class="icon-cards__item d-flex align-items-center justify-content-center">
+        <figure className="icon-cards mt-3">
+          <div className="icon-cards__content">
+            <div className="icon-cards__item d-flex align-items-center justify-content-center">
               <img src="/images/mouse.png" className="w-50" alt="carrousel" />
             </div>
-            <div class="icon-cards__item d-flex align-items-center justify-content-center">
+            <div className="icon-cards__item d-flex align-items-center justify-content-center">
               <img src="/images/corneta.png" className="w-50" alt="carrousel" />
             </div>
-            <div class="icon-cards__item d-flex align-items-center justify-content-center ">
+            <div className="icon-cards__item d-flex align-items-center justify-content-center ">
               <img src="/images/pc1.png" className="w-50" alt="carrousel" />
             </div>
           </div>

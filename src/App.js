@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
 import Carrusel from "./components/Carrusel";
 import Checkout from "./components/Checkout";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <NavMenu />
         <Routes>
           <Route path="/inicio" element={<Carrusel />} />
+          <Route path="/catalogo" element={<ItemListContainer />}></Route>
           <Route
             path="/categoria/:categoriaId"
             element={<ItemListContainer />}
@@ -26,6 +28,7 @@ function App() {
           <Route path="*" element={<Navigate to="/inicio" />} />
         </Routes>
       </BrowserRouter>
+      <Footer />
     </CartProvider>
   );
 }

@@ -1,56 +1,92 @@
 import React, { useContext, useState } from "react";
 import { db } from "../firebase/config";
 import {
-  doc,
   collection,
   addDoc,
   Timestamp,
-  updateDoc,
-  getDoc,
+  writeBatch,
+  query,
+  where,
+  documentId,
+  getDocs,
 } from "firebase/firestore";
 import { CartContext } from "../context/CartContext";
 import { Navigate, Link } from "react-router-dom";
+import useForm from "../hooks/useForm";
 
 const Checkout = () => {
-  const { cart, cartTotal, vaciarCarrito } = useContext(CartContext);
+  const { cart, cartTotal, vaciarProducto, vaciarCarrito } =
+    useContext(CartContext);
   const [orderId, setOrderId] = useState(null);
-  const [values, setValues] = useState({
+
+  const { values, handleInputChange, resetForm } = useForm({
     nombre: "",
     email: "",
     direccion: "",
   });
 
-  const handleInputChange = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
-  };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const pedido = {
-      cliente: {
-        ...values,
-      },
-      productos: cart,
-      total: cartTotal(),
-      fecha: Timestamp.fromDate(new Date()),
-    };
-    const pedidosRef = collection(db, "pedidos");
-    cart.forEach((producto) => {
-      const docRef = doc(db, "productos", producto.id);
-      getDoc(docRef).then((doc) => {
-        if (doc.data().stock >= producto.cantidad) {
-          updateDoc(docRef, {
-            stock: doc.data().stock - producto.cantidad,
+
+    if (
+      values.nombre !== undefined &&
+      values.direccion !== undefined &&
+      values.nombre.length >= 2 &&
+      values.direccion.length >= 4
+    ) {
+      const pedido = {
+        cliente: {
+          ...values,
+        },
+        productos: cart,
+        total: cartTotal(),
+        fecha: Timestamp.fromDate(new Date()),
+      };
+
+      const batch = writeBatch(db);
+      const pedidosRef = collection(db, "pedidos");
+      const productosRef = collection(db, "productos");
+
+      const peticion = query(
+        productosRef,
+        where(
+          documentId(),
+          "in",
+          cart.map((item) => item.id)
+        )
+      );
+      const productos = await getDocs(peticion);
+
+      const sinStock = [];
+
+      productos.docs.forEach((doc) => {
+        const productoInCart = cart.find((producto) => producto.id === doc.id);
+
+        if (doc.data().stock >= productoInCart.cantidad) {
+          batch.update(doc.ref, {
+            stock: doc.data().stock - productoInCart.cantidad,
           });
+        } else {
+          sinStock.push(productoInCart);
+        }
+      });
+
+      if (sinStock.length === 0) {
+        batch.commit().then(() => {
           addDoc(pedidosRef, pedido).then((doc) => {
             setOrderId(doc.id);
             vaciarCarrito();
           });
-        } else {
-          alert("no hay stock de tu producto");
-          vaciarCarrito();
-        }
-      });
-    });
+        });
+      } else {
+        vaciarProducto(sinStock[0].id);
+        alert(`Oh, ya no hay stock de ${sinStock[0].titulo} :(`);
+      }
+    } else {
+      alert("Los campos no estan correctamente llenados");
+
+      resetForm();
+    }
   };
 
   if (orderId) {
@@ -80,12 +116,12 @@ const Checkout = () => {
           <input
             type="text"
             className="form-control"
-            placeholder="Escriba su nombre"
+            placeholder="Escriba su nombre (minimo 2 letras)"
             value={values.nombre}
             onChange={handleInputChange}
             name="nombre"
             autoComplete="off"
-            required="required"
+            required={"required"}
           />
         </div>
         <div className="form-group m-2">
@@ -98,7 +134,7 @@ const Checkout = () => {
             onChange={handleInputChange}
             name="email"
             autoComplete="off"
-            required="required"
+            required={"required"}
           />
         </div>
         <div className="form-group m-2">
@@ -106,17 +142,17 @@ const Checkout = () => {
           <input
             type="text"
             className="form-control"
-            placeholder="Escriba su dirección"
+            placeholder="Escriba su dirección (minimo 4 letras)"
             value={values.direccion}
             onChange={handleInputChange}
             name="direccion"
             autoComplete="off"
-            required="required"
+            required={"required"}
           />
         </div>
 
         <button type="submit" className="btn btn-outline-info m-2">
-          Submit
+          Enviar
         </button>
       </form>
     </>

@@ -21,6 +21,7 @@ const ItemDetail = ({ id, img, descripcion, precio, stock, titulo }) => {
       cantidad,
       img,
       id,
+      stock,
     };
     setCantidad(1);
     addProducto(añadirItem, cantidad);
@@ -41,6 +42,7 @@ const ItemDetail = ({ id, img, descripcion, precio, stock, titulo }) => {
         )}
         {stock > 0 && (
           <ItemCount
+            id={id}
             stock={stock}
             añadir={añadirAlCarrito}
             count={cantidad}

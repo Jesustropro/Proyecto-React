@@ -28,6 +28,9 @@ const Navegation = () => {
             <Link to="/" className="nav-link ">
               Inicio
             </Link>
+            <Link to="/catalogo" className="nav-link">
+              Catálogo
+            </Link>
             <Link to="/categoria/Pc" className="nav-link">
               Pc
             </Link>

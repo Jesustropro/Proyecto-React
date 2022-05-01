@@ -7,19 +7,21 @@ import { db } from "../firebase/config";
 import { doc, getDoc } from "firebase/firestore";
 const ItemDetailCointainer = () => {
   const [item, setItem] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const { itemId } = useParams();
 
   useEffect(() => {
+    setLoading(true);
     const itemRef = doc(db, "productos", itemId);
-    console.log(itemRef);
     getDoc(itemRef)
       .then((doc) => {
         const prod = { id: doc.id, ...doc.data() };
 
         setItem(prod);
       })
-      .finally(setLoading(false));
+      .finally(() => {
+        setLoading(false);
+      });
   }, [itemId]);
   return loading ? (
     <>

@@ -14,17 +14,19 @@ const ItemListContainer = () => {
     setLoading(true);
 
     const productosRef = collection(db, "productos");
-    const productosCategory = query(
-      productosRef,
-      where("categoria", "==", categoriaId)
-    );
+    const q = categoriaId
+      ? query(productosRef, where("categoria", "==", categoriaId))
+      : productosRef;
 
-    getDocs(productosCategory)
+    getDocs(q)
       .then((resp) => {
         const items = resp.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+
         setItems(items);
       })
-      .finally(setLoading(false));
+      .finally(() => {
+        setLoading(false);
+      });
   }, [categoriaId]);
 
   return loading ? (
@@ -46,7 +48,7 @@ const ItemListContainer = () => {
   ) : (
     <div>
       <h1 className=" d-flex justify-content-center p-2">
-        Desafio clase 9 - Jesus Mora
+        {categoriaId ? `${categoriaId}` : "Catálogo"}
       </h1>
       <ItemList items={items} />;
     </div>
