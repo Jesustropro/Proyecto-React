@@ -673,3 +673,7 @@ input:valid {
   color: wheat;
   background-color: #0f202798;
 }
+.swal2-popup {
+  width: 80% !important;
+  margin-top: 4rem;
+}

@@ -13,6 +13,8 @@ import {
 import { CartContext } from "../context/CartContext";
 import { Navigate, Link } from "react-router-dom";
 import useForm from "../hooks/useForm";
+import Swal from "sweetalert2";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 const Checkout = () => {
   const { cart, cartTotal, vaciarProducto, vaciarCarrito } =
@@ -66,6 +68,19 @@ const Checkout = () => {
           batch.update(doc.ref, {
             stock: doc.data().stock - productoInCart.cantidad,
           });
+          Swal.fire({
+            toast: true,
+            iconColor: "#0dcaf0",
+            position: "top-end",
+            width: 400,
+            icon: "info",
+            title: "Procesando",
+            background: "#0f202798 ",
+            color: "#0dcaf0",
+            showConfirmButton: false,
+            timer: 1500,
+            timerProgressBar: true,
+          });
         } else {
           sinStock.push(productoInCart);
         }
@@ -80,10 +95,30 @@ const Checkout = () => {
         });
       } else {
         vaciarProducto(sinStock[0].id);
-        alert(`Oh, ya no hay stock de ${sinStock[0].titulo} :(`);
+        Swal.fire({
+          toast: true,
+          position: "top-end",
+          width: 400,
+          icon: "error",
+          title: `Oh, ya no hay stock de ${sinStock[0].titulo} :(`,
+          background: "#0f202798 ",
+          color: "#716add",
+          showConfirmButton: false,
+          timer: 5000,
+        });
       }
     } else {
-      alert("Los campos no estan correctamente llenados");
+      Swal.fire({
+        toast: true,
+        position: "top-end",
+        width: 400,
+        icon: "error",
+        title: `Los campos estan incorrectos`,
+        background: "#0f202798 ",
+        color: "#716add",
+        showConfirmButton: false,
+        timer: 2000,
+      });
 
       resetForm();
     }
@@ -92,14 +127,43 @@ const Checkout = () => {
   if (orderId) {
     return (
       <>
-        <div className="container">
-          <h1 className=" d-flex justify-content-center m-5 p-3">
-            Tu Pedido se ha realizado exitosamente
+        <div className="container ">
+          <h1 className=" d-flex justify-content-center mt-4 mb-4 text-center">
+            Tu pedido se ha realizado exitosamente
           </h1>
-          <h3 className="">Tu n° de pedido es: {orderId}</h3>
-          <Link to="/inicio" className="btn btn-outline-info " type="button">
-            Volver al inicio
-          </Link>
+          <h3 className="d-flex justify-content-center">
+            Tu N° de pedido es: {orderId}
+          </h3>
+          <div className="d-flex justify-content-center mt-4 text-center">
+            <Link
+              to="/inicio"
+              className="btn btn-outline-info m-2"
+              type="button"
+            >
+              Volver al inicio
+            </Link>
+            <CopyToClipboard text={orderId}>
+              <button
+                className="btn btn-outline-info m-2"
+                onClick={() => {
+                  Swal.fire({
+                    toast: true,
+                    iconColor: "#0dcaf0",
+                    position: "top-end",
+                    width: 400,
+                    icon: "success",
+                    title: "Copiado exitosamente ",
+                    background: "#0f202798 ",
+                    color: "#0dcaf0",
+                    showConfirmButton: false,
+                    timer: 1500,
+                  });
+                }}
+              >
+                Copiar N°
+              </button>
+            </CopyToClipboard>
+          </div>
         </div>
       </>
     );

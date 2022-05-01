@@ -45,6 +45,7 @@ const ItemCount = ({ id, stock, añadir, count, setCount, titulo }) => {
             if (productoInCart) {
               if (productoInCart.cantidad + count > stock) {
                 Swal.fire({
+                  toast: true,
                   position: "top-end",
                   width: 400,
                   icon: "error",
@@ -59,27 +60,31 @@ const ItemCount = ({ id, stock, añadir, count, setCount, titulo }) => {
                 añadir();
 
                 Swal.fire({
+                  toast: true,
+                  iconColor: "#0dcaf0",
                   position: "top-end",
                   width: 400,
                   icon: "success",
                   title: "Añadido exitosamente",
                   background: "#0f202798 ",
-                  color: "#716add",
+                  color: "#0dcaf0",
                   showConfirmButton: false,
-                  timer: 1000,
+                  timer: 1500,
                 });
               }
             } else if (stock !== 0) {
               añadir();
               Swal.fire({
+                toast: true,
                 position: "top-end",
+                iconColor: "#0dcaf0",
                 width: 400,
                 icon: "success",
                 title: "Añadido exitosamente",
                 background: "#0f202798 ",
-                color: "#716add",
+                color: "#0dcaf0",
                 showConfirmButton: false,
-                timer: 1000,
+                timer: 1500,
               });
             }
           }}

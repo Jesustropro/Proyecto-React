@@ -14,6 +14,7 @@ const CartCard = ({ producto }) => {
       localStorage.setItem("carrito", JSON.stringify([...cart]));
     } else if (parseInt(cantidad) > producto.stock) {
       Swal.fire({
+        toast: true,
         position: "top-end",
         width: 400,
         icon: "error",
@@ -29,7 +30,7 @@ const CartCard = ({ producto }) => {
   return (
     <div
       className="card mb-2 border-info "
-      style={{ width: "440px", backgroundColor: "transparent" }}
+      style={{ maxWidth: "440px", backgroundColor: "transparent" }}
     >
       <div className="row g-0">
         <div className="col-md-6">
