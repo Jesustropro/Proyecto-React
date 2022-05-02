@@ -24,6 +24,7 @@ const Checkout = () => {
   const { values, handleInputChange, resetForm } = useForm({
     nombre: "",
     email: "",
+    email2: "",
     direccion: "",
   });
 
@@ -34,7 +35,8 @@ const Checkout = () => {
       values.nombre !== undefined &&
       values.direccion !== undefined &&
       values.nombre.length >= 2 &&
-      values.direccion.length >= 4
+      values.direccion.length >= 4 &&
+      values.email === values.email2
     ) {
       const pedido = {
         cliente: {
@@ -107,6 +109,18 @@ const Checkout = () => {
           timer: 5000,
         });
       }
+    } else if (values.email !== values.email2) {
+      Swal.fire({
+        toast: true,
+        position: "top-end",
+        width: 400,
+        icon: "error",
+        title: `Los email no coinciden`,
+        background: "#0f202798 ",
+        color: "#716add",
+        showConfirmButton: false,
+        timer: 2000,
+      });
     } else {
       Swal.fire({
         toast: true,
@@ -197,6 +211,19 @@ const Checkout = () => {
             value={values.email}
             onChange={handleInputChange}
             name="email"
+            autoComplete="off"
+            required={"required"}
+          />
+        </div>
+        <div className="form-group m-2">
+          <label>Repita el email</label>
+          <input
+            type="email"
+            className="form-control"
+            placeholder="Escriba su email"
+            value={values.email2}
+            onChange={handleInputChange}
+            name="email2"
             autoComplete="off"
             required={"required"}
           />
