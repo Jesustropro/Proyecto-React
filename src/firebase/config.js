@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 const APIKEY = process.env.APIKEY;
-const REACT_APP_PROJECTID = process.env.PROJECTID;
+const REACT_APP_PROJECTID = process.env.REACT_APP_PROJECTID;
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 

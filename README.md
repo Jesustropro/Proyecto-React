@@ -4,7 +4,7 @@ _Proyecto creado para el proyecto final de CoderHouse_
 
 ## Detalles 📌
 
-Aplicacion desarrollada en React.js y Firebase
+Aplicacion desarrollada en React.js y Firebase como base de datos
 
 ## Contenido 📋
 
