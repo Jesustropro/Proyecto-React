@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 const APIKEY = process.env.APIKEY;
-
+const REACT_APP_PROJECTID = process.env.PROJECTID;
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -10,7 +10,7 @@ const APIKEY = process.env.APIKEY;
 const firebaseConfig = {
   apiKey: APIKEY,
   authDomain: "proyecto-react-532f3.firebaseapp.com",
-  projectId: "proyecto-react-532f3",
+  projectId: REACT_APP_PROJECTID,
   storageBucket: "proyecto-react-532f3.appspot.com",
   messagingSenderId: "504438247304",
   appId: "1:504438247304:web:4509da58e05d9852aef43d",
