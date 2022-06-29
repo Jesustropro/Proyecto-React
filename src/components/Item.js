@@ -19,7 +19,7 @@ const Item = ({ item }) => {
 
               <button className="custom-btn btn-12" type="button">
                 <span>Aquí</span>
-                <span>Ver mas</span>
+                <span>Ver mas esfwsefwerfwefwe</span>
               </button>
             </div>
           </Card>
@@ -27,5 +27,5 @@ const Item = ({ item }) => {
       </div>
     </Link>
   );
-}; /*prubea*/
+};
 export default Item;
