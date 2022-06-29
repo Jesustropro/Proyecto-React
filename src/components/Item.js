@@ -27,5 +27,5 @@ const Item = ({ item }) => {
       </div>
     </Link>
   );
-};
+}; /*prubea*/
 export default Item;
