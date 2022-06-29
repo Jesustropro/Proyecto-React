@@ -19,7 +19,7 @@ const Item = ({ item }) => {
 
               <button className="custom-btn btn-12" type="button">
                 <span>Aquí</span>
-                <span>Ver mas esfwsefwerfwefwe</span>
+                <span>Ver mas</span>
               </button>
             </div>
           </Card>
